@@ -30,7 +30,9 @@ DEBUG = True
 
 # Everytime a new lab is launch on IBM cloud, the app URL changed. So, you need to update them to allowerd_host, and CSRF (login)
 ALLOWED_HOSTS = ['localhost', 'https://ilcodelover-8000.theiadockernext-0-labs-prod-theiak8s-4-tor01.proxy.cognitiveclass.ai']
-CSRF_TRUSTED_ORIGINS = ['https://ilcodelover-8000.theiadockernext-1-labs-prod-theiak8s-4-tor01.proxy.cognitiveclass.ai/']
+CSRF_TRUSTED_ORIGINS = [
+'https://ilcodelover-8000.theiadockernext-1-labs-prod-theiak8s-4-tor01.proxy.cognitiveclass.ai/', 
+'https://ilcodelover-8000.theiadockernext-1-labs-prod-theiak8s-4-tor01.proxy.cognitiveclass.ai']
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [],
