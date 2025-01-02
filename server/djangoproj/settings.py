@@ -28,8 +28,9 @@ SECRET_KEY =\
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+# Everytime a new lab is launch on IBM cloud, the app URL changed. So, you need to update them to allowerd_host, and CSRF (login)
 ALLOWED_HOSTS = ['localhost', 'https://ilcodelover-8000.theiadockernext-0-labs-prod-theiak8s-4-tor01.proxy.cognitiveclass.ai']
-CSRF_TRUSTED_ORIGINS = ['https://ilcodelover-8000.theiadockernext-0-labs-prod-theiak8s-4-tor01.proxy.cognitiveclass.ai']
+CSRF_TRUSTED_ORIGINS = ['https://ilcodelover-8000.theiadockernext-1-labs-prod-theiak8s-4-tor01.proxy.cognitiveclass.ai/']
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [],
@@ -137,5 +138,10 @@ MEDIA_URL = '/media/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'frontend/static')]
-
+# In production: it tells Django where to look for additional static files in your project
+# (outside of the default static directory for each app)
+# it is necessary for 'get_dealers/', 'login'...
+STATICFILES_DIRS = [os.path.join(BASE_DIR,'frontend/static'),
+                    os.path.join(BASE_DIR, 'frontend/build'),
+                    os.path.join(BASE_DIR, 'frontend/build/static')
+                    ]
