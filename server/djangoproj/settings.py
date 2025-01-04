@@ -28,11 +28,13 @@ SECRET_KEY =\
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-# Everytime a new lab is launch on IBM cloud, the app URL changed. So, you need to update them to allowerd_host, and CSRF (login)
-ALLOWED_HOSTS = ['localhost', 'https://ilcodelover-8000.theiadockernext-0-labs-prod-theiak8s-4-tor01.proxy.cognitiveclass.ai']
+# Everytime a new lab is launch on IBM cloud, the app URL changed.
+# So, you need to update them to allowerd_host, and CSRF (login)
+ALLOWED_HOSTS = ['localhost',
+'https://ilcodelover-8000.theiadockernext-0-labs-prod-theiak8s-4-tor01.proxy.cognitiveclass.ai'] # noqa
 CSRF_TRUSTED_ORIGINS = [
-'https://ilcodelover-8000.theiadockernext-1-labs-prod-theiak8s-4-tor01.proxy.cognitiveclass.ai/', 
-'https://ilcodelover-8000.theiadockernext-1-labs-prod-theiak8s-4-tor01.proxy.cognitiveclass.ai']
+'https://ilcodelover-8000.theiadockernext-1-labs-prod-theiak8s-4-tor01.proxy.cognitiveclass.ai/', # noqa
+'https://ilcodelover-8000.theiadockernext-1-labs-prod-theiak8s-4-tor01.proxy.cognitiveclass.ai'] # noqa
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [],
@@ -64,7 +66,7 @@ ROOT_URLCONF = 'djangoproj.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR,'frontend/static'),
+        'DIRS': [os.path.join(BASE_DIR, 'frontend/static'),
                  os.path.join(BASE_DIR, 'frontend/build'),
                  os.path.join(BASE_DIR, 'frontend/build/static')
                  ],
@@ -96,7 +98,7 @@ DATABASES = {
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME':
-        'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+        'django.contrib.auth.password_validation.UserAttributeSimilarityValidator', # noqa
     },
     {
         'NAME':
@@ -140,10 +142,11 @@ MEDIA_URL = '/media/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# In production: it tells Django where to look for additional static files in your project
+# In production: it tells Django where to look for
+# additional static files in your project
 # (outside of the default static directory for each app)
 # it is necessary for 'get_dealers/', 'login'...
-STATICFILES_DIRS = [os.path.join(BASE_DIR,'frontend/static'),
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'frontend/static'),
                     os.path.join(BASE_DIR, 'frontend/build'),
                     os.path.join(BASE_DIR, 'frontend/build/static')
                     ]
