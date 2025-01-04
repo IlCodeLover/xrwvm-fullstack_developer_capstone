@@ -92,7 +92,8 @@ def get_cars(request):
 
     cars = []
     for car_model in car_models:
-        # get car model info and append additional car make's name from via Foreign key
+        # get car model info and append additional
+        # car make's name from via Foreign key
         cars.append({
             'CarModel': car_model.name,
             'CarMake': car_model.car_make.name
@@ -101,7 +102,8 @@ def get_cars(request):
     return JsonResponse({"CarModels": cars})
 
 
-# Update the `get_dealerships` render list of dealerships all by default, particular state if state is passed
+# Update the `get_dealerships` render list of dealerships all by default,
+# particular state if state is passed
 def get_dealerships(request, state="All"):
     if state == "All":
         endpoint = "/fetchDealers"
@@ -153,8 +155,10 @@ def add_review(request):
     if not request.user.is_anonymous:
         data = json.loads(request.body)
         try:
-            response = post_review(data)
-            return JsonResponse({"status": 200})
+            post_review(data)
+            return JsonResponse({
+                "status": 200,
+                "message": "Review posted successfully"})
         except Exception:
             return JsonResponse({
                 "status": 401,
@@ -165,3 +169,4 @@ def add_review(request):
             "status": 403,
             "message": "Unauthorized"
         })
+
